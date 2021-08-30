@@ -1,0 +1,9 @@
+{
+  "description": "Partagez une message avec un futur visitor ci-dessous. Cela peut être n'importe quoi – appréciation, information, sagesse ou même humour. Surprends-moi!",
+  "formTitle": "Signez le",
+  "formDescription": "Partagez une message avec un futur visitor.",
+  "formPlaceholder": "Votre message ...",
+  "formButton": "Signer",
+  "trust": "Vos informations ne sont utilisées que pour afficher votre nom et répondre par e-mail.",
+  "formSucess":"Hooray! Merci d'avoir signé mon Guestbook."
+}
