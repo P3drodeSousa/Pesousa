@@ -3,9 +3,10 @@ import Container from "../components/Container";
 import Stats from "../components/Stats";
 import Title from "../components/Utils/Title";
 import TopTracks from "../components/TopTracks";
-import useTranslation from "next-translate/useTranslation";
+import { getMyFolders } from "./api/github";
 
 export default function About({ stats, langue }) {
+  console.log(stats)
   return (
     <Container title={`${langue("about:title")} – Pedro de Sousa`}>
       <section className="mt-5">
@@ -24,8 +25,7 @@ export default function About({ stats, langue }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch(`${process.env.NEXTAUTH_URL}api/github`);
-  const stats = await data.json();
+  const stats = await getMyFolders();
 
   return {
     props: {

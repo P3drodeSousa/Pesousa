@@ -1,4 +1,4 @@
-export const skillsData = [
+export const skills = [
   {
     title: "Frequently Uses",
     skill: [

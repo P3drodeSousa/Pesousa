@@ -5,7 +5,7 @@ export default function ProjetComponent({ projet }) {
     <section class="project-list mt-24">
       {projet &&
         projet.map(({ title, description, poster, techs, github, link }) => (
-          <section class="projet mt-12 mb-48">
+          <section class="projet mt-12 mb-48" key={title}>
             <a href={link} class="photo">
               <h1>{title}</h1>
               <img src={poster} />

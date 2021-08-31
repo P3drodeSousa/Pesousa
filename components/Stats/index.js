@@ -24,7 +24,7 @@ export default function Stats({ stats, text, days, code }) {
           title={days}
           stat={getDifferenceInDays(new Date(), new Date("02/20/1992"))}
         />
-        <Stat title="GitHub Folders" stat={stats.mine} />
+        <Stat title="GitHub Folders" stat={stats} />
         <Stat title={code} stat={result} />
       </div>
     </div>

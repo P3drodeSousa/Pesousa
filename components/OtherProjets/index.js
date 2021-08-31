@@ -6,7 +6,7 @@ export default function OtherProjets({ other }) {
       <h2 className="text-center text-5xl font-semibold">Other Projects</h2>
       <div className="mt-12 grid grid-cols-3 gap-4">
         {other.map(({ title, github, link, techs, description }) => (
-          <div className="py-8 px-7 border rounded-lg dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
+          <div className="py-8 px-7 border rounded-lg dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque" key={title}>
             <div className="flex justify-between items-center mb-6">
               <FiFolder size={40} />
               <div class="project-links">
