@@ -1,5 +1,5 @@
 import db from "@/lib/planetscale";
-import { providers, signIn, getSession } from "next-auth/client";
+import { signIn, useSession  } from "next-auth/client";
 
 import useSWR, { mutate } from "swr";
 import fetcher from "@/lib/fetcher";
@@ -11,14 +11,17 @@ import GuestBookEntry from "@/components/Guestbook";
 
 
 export default function Guestbook({
-  session,
-  providers,
   initialEntries,
   langue,
 }) {
+  const [session, loading] = useSession()
   const { data: entries } = useSWR("/api/guestbook", fetcher, {
     initialData: initialEntries,
   });
+  const { data: providers } = useSWR("/api/auth/providers", fetcher);
+
+if (!session || !providers) return <div>Loading ... </div>
+
   return (
     <Container title="Guestbook – Pedro de Sousa">
       <section className="mt-5">
@@ -69,20 +72,17 @@ export default function Guestbook({
   );
 }
 
-Guestbook.getInitialProps = async (context) => {
-  const { req } = context;
-  const session = await getSession({ req });
-
+export async function getStaticProps() {
   const [rows] = await db.query(`
   SELECT * FROM guestbook
   ORDER BY updated_at DESC;
 `);
 
   const entries = await Object.values(JSON.parse(JSON.stringify(rows)));
-
   return {
-    session,
-    providers: await providers(context),
-    inititalEntries: entries,
+    props: {
+      inititalEntries: entries,
+    },
+    revalidate: 60,
   };
-};
+}

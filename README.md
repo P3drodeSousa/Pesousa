@@ -4,7 +4,7 @@
 Next.js
 Tailwind CSS
 PLanetScale
-
+Github API
 
 ## Running Locally
 `

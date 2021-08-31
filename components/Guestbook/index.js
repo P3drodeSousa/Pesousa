@@ -1,9 +1,7 @@
 import { format } from "date-fns";
 import { mutate } from "swr"
-import useTranslation from "next-translate/useTranslation";
 
 export default function GuestBookEntry({ entries, user }) {
-  const { t } = useTranslation();
   const deleteEntry = async (id, e) => {
     e.preventDefault();
 
