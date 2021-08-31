@@ -1,7 +1,6 @@
 import Container from "../components/Container";
 import Title from "../components/Utils/Title";
 import Skills from "../components/Skills";
-import { getPostBySlug } from "./api/skills";
 
 export default function Uses({ skills }) {
   return (
@@ -19,9 +18,7 @@ export default function Uses({ skills }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch("api/skills");
-  const skills = await data.json();
-  
+    
   return {
     props: {
       skills,
