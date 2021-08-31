@@ -20,7 +20,7 @@ export default function Guestbook({
   });
   const { data: providers } = useSWR("/api/auth/providers", fetcher);
 
-if (!session || !providers) return <div>Loading ... </div>
+if (!session) return <div>Loading ... </div>
 
   return (
     <Container title="Guestbook – Pedro de Sousa">
