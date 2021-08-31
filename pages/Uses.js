@@ -1,6 +1,7 @@
 import Container from "../components/Container";
 import Title from "../components/Utils/Title";
 import Skills from "../components/Skills";
+import {skills} from '@/data/uses'
 
 export default function Uses({ skills }) {
   return (
