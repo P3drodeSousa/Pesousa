@@ -1,5 +1,5 @@
 import db from "@/lib/planetscale";
-import { signIn, useSession  } from "next-auth/client";
+import { signIn, useSession } from "next-auth/client";
 
 import useSWR, { mutate } from "swr";
 import fetcher from "@/lib/fetcher";
@@ -9,18 +9,15 @@ import Title from "../components/Utils/Title";
 import GuestBookform from "@/components/Guestbook/GuestBookForm";
 import GuestBookEntry from "@/components/Guestbook";
 
+export default function Guestbook({ initialEntries, langue }) {
+  const [session] = useSession();
 
-export default function Guestbook({
-  initialEntries,
-  langue,
-}) {
-  const [session, loading] = useSession()
   const { data: entries } = useSWR("/api/guestbook", fetcher, {
     initialData: initialEntries,
   });
   const { data: providers } = useSWR("/api/auth/providers", fetcher);
 
-if (!session) return <div>Loading ... </div>
+  if (!providers) return <div>Loading </div>;
 
   return (
     <Container title="Guestbook – Pedro de Sousa">
@@ -40,18 +37,27 @@ if (!session) return <div>Loading ... </div>
               {!session && (
                 <>
                   <div className="my-6 flex gap-5">
-                    {Object.values(providers).map((provider) => {
-                      return (
-                        <button
-                          key={provider.name}
-                          className={`flex-1 w-full py-3 rounded-md bg-${provider.id} my-2 text-white`}
-                          onClick={() => signIn(provider.id)}
-                        >
-                          Login in with <br />
-                          {provider.name}
-                        </button>
-                      );
-                    })}
+                    <button
+                      className={`flex-1 w-full py-3 rounded-md bg-github my-2 text-white`}
+                      onClick={() => signIn("github")}
+                    >
+                      Login in with <br />
+                      Github
+                    </button>
+                    <button
+                      className={`flex-1 w-full py-3 rounded-md bg-google my-2 text-white`}
+                      onClick={() => signIn("google")}
+                    >
+                      Login in with <br />
+                      Google
+                    </button>
+                    <button
+                      className={`flex-1 w-full py-3 rounded-md bg-linkedin my-2 text-white`}
+                      onClick={() => signIn("linkedin")}
+                    >
+                      Login in with <br />
+                      Linkedin
+                    </button>
                   </div>
                 </>
               )}

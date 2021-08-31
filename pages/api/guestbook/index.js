@@ -4,8 +4,6 @@ import { getSession } from "next-auth/client";
 export default async function handler(req, res) {
   const session = await getSession({ req });
 
-  const { name, email } = session.user;
-  
   const [rows] = await db.query(`
     SELECT * FROM guestbook
     ORDER BY updated_at DESC;
@@ -18,6 +16,8 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     if (!session) return res.status(403).send("Unauthorized");
 
+    const { name, email } = session.user;
+    
     const body = (req.body.body || "").slice(0, 500);
 
     const [insert] = await db.query(
