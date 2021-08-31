@@ -1,4 +1,14 @@
 {
   "title": "Mes réalisations.",
-  "description": "Voici quelques projets sélectionnés sur lesquels j'ai travaillé..."
+  "description": "Voici quelques projets sélectionnés sur lesquels j'ai travaillé...",
+  "NextFlix": "Web app qui liste le films les plus populaires du moment. Regardez les et créer des watchlist.",
+  "NextMedium": "Un convertisseur de markdown vers un blog automatisé. Géneration automatique du SEO ainsi que l'image de cover et de OG.",
+  "NextDit": "A reddit clone crée avec  AWS webservices",
+  "Other" :"Autres Projets",
+  "Pinterest": "A clone de la page d'accueil de pinterest homepage",
+  "Portfolio_v1": "La première de mon portfolio que j'ai développé en 2020.",
+  "Travel" :"A simple website où j'ai animé Gzap",
+  "PWA": "A simple PWA crée avec react",
+  "Docs": "Realtime clone de l'application Google docs.",
+  "Music_React": "Une application de music."
 }

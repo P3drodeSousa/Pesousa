@@ -5,7 +5,7 @@ export default function Spotify() {
   const { data } = useSWR("/api/now-playing", fetcher);
 
   return (
-    <div className="flex flex-1 w-full items-center justify-center">
+    <div className="flex flex-1 w-full items-center justify-center my-2 md:my-0">
       <div className="flex flex-col justify-center items-center sm:flex-row w-full truncate">
         <svg className="h-4 w-4 mr-2" viewBox="0 0 168 168">
           <path

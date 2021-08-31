@@ -36,7 +36,7 @@ export default function Guestbook({ initialEntries, langue }) {
               <p className="my-1">{langue("guestbook:formDescription")}</p>
               {!session && (
                 <>
-                  <div className="my-6 flex gap-5">
+                  <div className="my-6 flex gap-5 md:flex-row flex-col">
                     <button
                       className={`flex-1 w-full py-3 rounded-md bg-github my-2 text-white`}
                       onClick={() => signIn("github")}

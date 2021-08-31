@@ -1,7 +1,6 @@
 import Container from "../components/Container";
 import NextLink from "next/link";
-
-//TODO optamise web font
+import Image from 'next/image'
 
 export default function Home({ langue }) {
   return (
@@ -22,7 +21,7 @@ export default function Home({ langue }) {
               <NextLink href={"/Guestbook"}>
                 <a className="text-green font-semibold">
                   {" "}
-                  {langue("common:guestbook")} guestbook
+                  {langue("common:guestbook")} Guestbook
                 </a>
               </NextLink>{" "}
               {langue("common:more")}{" "}
@@ -37,12 +36,8 @@ export default function Home({ langue }) {
         </div>
 
         <div className="absolute inset-0 left-1/2 md:block hidden">
-          <img
-            src="me.png"
-            width="100%"
-            height="100%"
-            className="object-contain z-40 absolute bottom-8"
-          />
+        <Image src="/me.png" alt="Illustration of developper" layout="fill" objectFit="contain" className="z-40 absolute bottom-8"/>
+
           <div className="absolute inset-0 z-10 radial"></div>
         </div>
       </section>

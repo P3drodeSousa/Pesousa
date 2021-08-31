@@ -4,7 +4,7 @@ import {RiCloseFill } from 'react-icons/ri'
 import { useTheme } from "next-themes";
 
 
-const Menu = ({menus},ref) => {
+const Menu = ({menus, href},ref) => {
     const [visible, setVisible] = useState(false);
     const { theme,} = useTheme();
 
@@ -25,18 +25,12 @@ const Menu = ({menus},ref) => {
         setVisible(true);
       }, []);
     
-
-
-
-
     const handleDarkIcons = (theme) => (theme === "dark" ? "black" : "white");
-
-    console.log(handleDarkIcons(theme))
 
     if(!visible) return null;
 
     return (
-    <div className="h-screen w-screen bg-black dark:bg-white absolute inset-0 -left-8 flex flex-col items-center justify-between py-20 ">
+    <div className="h-screen w-screen bg-black dark:bg-white absolute inset-0 -left-8 flex flex-col items-center justify-between py-20 z-50 ">
       <RiCloseFill
         size={60}
         color={handleDarkIcons(theme)} 
@@ -44,9 +38,9 @@ const Menu = ({menus},ref) => {
         onClick={CloseMenu}
       />
 
-      {menus.map((item) => {
+      {menus.map((item, index) => {
         return (
-          <NextLink key={item} href={`/${item}`}>
+          <NextLink key={item} href={`/${href[index]}`}>
             <a className="dark:text-gray-900 text-gray-100 text-5xl font-extrabold">
               {item}
             </a>

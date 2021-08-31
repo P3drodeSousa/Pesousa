@@ -1,10 +1,13 @@
 import { FiGithub, FiExternalLink } from "react-icons/fi";
+//TODO add next Image
+import useTranslation from "next-translate/useTranslation";
 
 export default function ProjetComponent({ projet }) {
+  const { t } = useTranslation("common");
   return (
     <section class="project-list mt-24">
       {projet &&
-        projet.map(({ title, description, poster, techs, github, link }) => (
+        projet.map(({ title, poster, nom, techs, github, link }) => (
           <section class="projet mt-12 mb-48" key={title}>
             <a href={link} class="photo">
               <h1>{title}</h1>
@@ -14,8 +17,7 @@ export default function ProjetComponent({ projet }) {
               </div>
             </a>
             <div class="content">
-              <p>{description}</p>
-
+              {t(`projects:${nom}`)}
               <ul>
                 {techs.map((tech) => (
                   <li key={tech}>{tech}</li>

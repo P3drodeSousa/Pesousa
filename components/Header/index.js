@@ -33,7 +33,7 @@ export default function Header() {
           : "sticky-nav bg-white dark:bg-black bg-opacity-60"
       } z-20 relative flex items-center justify-between w-full py-6 my-0 text-gray-900  dark:text-gray-100`}
     >
-      <Mobile menus={links} />
+      <Mobile menus={links} href={hrefs}/>
       <NextLink href="/">
         <svg
           id="Calque_1"

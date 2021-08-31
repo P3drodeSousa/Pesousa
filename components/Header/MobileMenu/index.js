@@ -1,7 +1,7 @@
 import Menu from './Menu';
 import { useCallback, useRef } from "react";
 
-export default function Mobile({ menus }) {
+export default function Mobile({ menus, href }) {
   const menuRef = useRef(null);
 
   const handleOpenMenu = useCallback(() => {
@@ -26,7 +26,7 @@ export default function Mobile({ menus }) {
           />
         </svg>
       </button>
-      <Menu ref={menuRef} menus={menus} />
+      <Menu ref={menuRef} menus={menus} href={href} />
     </div>
   );
 }
