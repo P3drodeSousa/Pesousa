@@ -22,7 +22,7 @@ export default function Projets({ projets, langue }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch("http://localhost:3000/api/projets");
+  const data = await fetch(`${process.env.NEXTAUTH_URL}api/projets`);
   const projets = await data.json();
 
   return {

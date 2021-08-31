@@ -18,10 +18,9 @@ export default function Uses({ skills, langue }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch("http://localhost:3000/api/skills");
+  const data = await fetch(`${process.env.NEXTAUTH_URL}api/skills`);
   const skills = await data.json();
 
-  // const skills = await getPostBySlug();
   return {
     props: {
       skills,

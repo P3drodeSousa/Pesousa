@@ -19,7 +19,7 @@ export default function Uses({ skills }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch("http://localhost:3000/api/skills");
+  const data = await fetch("api/skills");
   const skills = await data.json();
   
   return {
