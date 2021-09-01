@@ -160,14 +160,12 @@ html {
 }
 
 .project-links {
-  margin-top: 30px;
   display: flex;
   justify-content: flex-end;
 }
 
 .project-links a {
-  padding: 10px;
-  margin-top: -4px;
+  margin-left: 8px;
 }
 
 #Calque_1{
@@ -183,7 +181,6 @@ html {
   height: 100vh;
   background: #0414a7;
 }
-
 
 .bsod {
   padding-top: 10%;

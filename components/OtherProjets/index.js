@@ -15,29 +15,37 @@ export default function OtherProjets({ other }) {
             className="py-8 px-7 border rounded-lg dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque"
             key={title}
           >
-            <div className="flex justify-between items-center mb-6">
-              <FiFolder size={40} />
+            <div className="flex justify-between items-center mb-12">
+              <FiFolder size={45} color="#00FFA3" />
               <div class="project-links">
                 {github && (
-                  <a href={github} target="_blank">
-                    <FiGithub size={30} />
+                  <a href={github} target="_blank" rel="noreferrer">
+                    <FiGithub size={25} />
                   </a>
                 )}
 
                 {link && (
-                  <a href={link} target="_blank">
-                    <FiExternalLink size={30} />
+                  <a href={link} target="_blank" rel="noreferrer">
+                    <FiExternalLink size={25} />
                   </a>
                 )}
               </div>
             </div>
-            <h3 className="mb-3 text-black dark:text-white font-semibold">
+            <a
+              href={link}
+              className="text-black dark:text-white font-semibold"
+              target="_blank"
+              rel="noreferrer"
+            >
               {title}
-            </h3>
-            <p className="mb-7 text-sm">{t(`projects:${nom}`)}</p>
+            </a>
+
+            <p className="mt-5 mb-7">{t(`projects:${nom}`)}</p>
             <ul className="flex text-xs">
               {techs.map((tech) => (
-                <li className="mr-3" key={tech}>{tech}</li>
+                <li className="mr-3" key={tech}>
+                  {tech}
+                </li>
               ))}
             </ul>
           </div>

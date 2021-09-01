@@ -16,14 +16,22 @@ export const projets = {
         github: "https://github.com/P3drodeSousa/thumbnail",
         link: "https://thumbnail.vercel.app/",
       },
-      { 
-        nom: "NextDit",
-        title: "NextDit",
-        poster: "projets/next_blog.png",
-        techs: ["Next.js", "AWS", "Puppeteer"],
-        github: "https://github.com/P3drodeSousa/thumbnail",
-        link: "https://thumbnail.vercel.app/",
+      {
+        nom: "CryptoTracker",
+        title: "CryptoTracker",
+        poster: "projets/nextcrypto.png",
+        techs: ["React", "Coingecko"],
+        github: "https://github.com/P3drodeSousa/crypto_Tracker.git",
+        link: "https://crypto-tracker-nine-amber.vercel.app/",
       },
+      // { 
+      //   nom: "NextDit",
+      //   title: "NextDit",
+      //   poster: "projets/next_blog.png",
+      //   techs: ["Next.js", "AWS", "Puppeteer"],
+      //   github: "https://github.com/P3drodeSousa/thumbnail",
+      //   link: "https://thumbnail.vercel.app/",
+      // },
     ],
     other: [
       {
@@ -54,13 +62,13 @@ export const projets = {
         github: "https://github.com/P3drodeSousa/thumbnail",
         link: "https://thumbnail.vercel.app/",
       },
-      {
-        nom:"Docs",
-        title: "Google Docs Clone",
-        techs: ["React", "Node", "Socket.io", "Mongo DB"],
-        github: "https://github.com/P3drodeSousa/thumbnail",
-        link: "https://thumbnail.vercel.app/",
-      },
+      // {
+      //   nom:"Docs",
+      //   title: "Google Docs Clone",
+      //   techs: ["React", "Node", "Socket.io", "Mongo DB"],
+      //   github: "https://github.com/P3drodeSousa/thumbnail",
+      //   link: "https://thumbnail.vercel.app/",
+      // },
       {
         nom: "Music_React",
         title: "React Music Player App",
