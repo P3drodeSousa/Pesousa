@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: 'Poppins';
   font-style: normal;
@@ -178,7 +177,46 @@ html {
  font-family:StanleyRegular, Stanley;
 }
 
+/* 404 Page */
+.error_page {
+  width: 100vw;
+  height: 100vh;
+  background: #0414a7;
+}
 
+
+.bsod {
+  padding-top: 10%;
+  width: 90%;
+  margin: auto;
+  max-width: 640px;
+}
+
+.bsod .neg {
+  text-align: center;
+  color: #0414a7;
+}
+.bsod .neg .bg {
+  background: #aaaaaa;
+  padding: 0 20px 2px 20px;
+}
+.bsod .title {
+  margin-bottom: 50px;
+  font-size: clamp(20px, 5vw, 80px);
+}
+
+.bsod .nav {
+  margin-top: 35px;
+  text-align: center;
+}
+.bsod .nav .link {
+  text-decoration: none;
+  padding: 0 9px 2px 8px;
+}
+.bsod .nav .link:hover, .bsod .nav .link:focus {
+  background: #aaaaaa;
+  color: #0414a7;
+}
 
 @media screen and (max-width: 762px) {
   .project-list {
