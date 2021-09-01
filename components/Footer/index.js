@@ -18,11 +18,11 @@ export default function Footer() {
 
   return (
     <footer className="flex items-center md:justify-between justify-center py-8 md:flex-row flex-col-reverse relative w-full">
-      <div className="flex flex-1 w-full items-center justify-center">
+      <div className="flex flex-1 w-full items-center justify-center md:justify-start">
         No tracking. No ads. {t("common:day")} {day} ! &copy; {year}
       </div>
       <Spotify />
-      <div className="flex flex-1 w-full items-center justify-center icons-spacing cursor-pointer">
+      <div className="flex flex-1 w-full items-center justify-center md:justify-end icons-spacing cursor-pointer">
         <a href="mailto:contact@pesousa.dev" target="_blank" rel="noreferrer">
           <FiMail size={24} color={handleDarkIcons()} />
         </a>

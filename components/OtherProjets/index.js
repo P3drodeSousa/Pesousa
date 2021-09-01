@@ -37,7 +37,7 @@ export default function OtherProjets({ other }) {
             <p className="mb-7 text-sm">{t(`projects:${nom}`)}</p>
             <ul className="flex text-xs">
               {techs.map((tech) => (
-                <li className="mr-3">{tech}</li>
+                <li className="mr-3" key={tech}>{tech}</li>
               ))}
             </ul>
           </div>
