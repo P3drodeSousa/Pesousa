@@ -1,6 +1,6 @@
 import Container from "../components/Container";
 import NextLink from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function Home({ langue }) {
   return (
@@ -36,7 +36,15 @@ export default function Home({ langue }) {
         </div>
 
         <div className="absolute inset-0 left-1/2 md:block hidden">
-        <Image src="/me.png" alt="Illustration of developper" layout="fill" objectFit="contain" className="z-40 absolute bottom-8"/>
+          <Image
+            src="/me.png"
+            alt="Illustration of developper"
+            layout="fill"
+            objectFit="contain"
+            className="z-40 absolute bottom-8"
+            loading="eager"
+            priority={true}
+          />
 
           <div className="absolute inset-0 z-10 radial"></div>
         </div>

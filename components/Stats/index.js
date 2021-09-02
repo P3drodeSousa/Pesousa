@@ -13,7 +13,7 @@ export default function Stats({ stats, text, days, code }) {
   return (
     <div className="mx-auto max-w-screen-xl">
       <h2 className="text-center text-5xl font-semibold mt-28">Stats</h2>
-      <div class="text-justify text-lg max-w-6xl mx-auto my-14">
+      <div className="text-justify text-lg max-w-6xl mx-auto my-14">
         {text} Enjoy{" "}
         <span role="img" aria-label="Peace Emoji">
           ✌🏻

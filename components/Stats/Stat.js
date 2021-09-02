@@ -7,7 +7,7 @@ export default function Stat({ title, stat }) {
       <div className="text-indigo-500 bg-indigo-50 inline-block rounded-full px-3 py-1 text-base font-semibold mb-4 dark:bg-gray-800 dark:text-pink-500">
         {title}
       </div>
-      <h3 class="font-extrabold text-4xl tracking-tighter dark:text-white">
+      <h3 className="font-extrabold text-4xl tracking-tighter dark:text-white">
         <span>{addComma(stat)}</span>
       </h3>
     </div>

@@ -8,7 +8,7 @@ export default function Uses({ skills }) {
     <Container title="Skills– Pedro de Sousa">
       <section className="mt-5">
         <Title title="What I use." />
-        <div class="text-justify text-lg max-w-6xl mx-auto my-14">
+        <div className="text-justify text-lg max-w-6xl mx-auto my-14">
           Here's what tech I'm currently using for coding and design solutions.
           Most of these have been accumulated over the past few years.
           <Skills skills={skills} />

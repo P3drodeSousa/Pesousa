@@ -3,7 +3,7 @@ import Container from "../components/Container";
 import Stats from "../components/Stats";
 import Title from "../components/Utils/Title";
 import TopTracks from "../components/TopTracks";
-import { getMyFolders } from "./api/github";
+import getMyFolders from "./api/github";
 
 export default function About({ stats, langue }) {
   console.log(stats)

@@ -8,7 +8,7 @@ export default function Uses({ skills, langue }) {
     <Container title={`${langue("skills:title")} – Pedro de Sousa`}>
       <section className="mt-5">
         <Title title={langue("skills:title")} />
-        <div class="text-justify text-lg max-w-6xl mx-auto my-14">
+        <div className="text-justify text-lg max-w-6xl mx-auto my-14">
           {langue("skills:description")}
           <Skills skills={skills} />
         </div>

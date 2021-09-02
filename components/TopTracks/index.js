@@ -11,7 +11,7 @@ export default function TopTracks({ tracks }) {
   }
 
   return (
-    <div class="text-justify text-lg max-w-6xl mx-auto my-36">
+    <div className="text-justify text-lg max-w-6xl mx-auto my-36">
       <h2 className="text-center text-5xl font-semibold">Top Tracks</h2>
       <p className="my-14">{tracks}</p>
 

@@ -16,24 +16,23 @@ export const projets = {
         github: "https://github.com/P3drodeSousa/thumbnail",
         link: "https://thumbnail.vercel.app/",
       },
+      { 
+        nom: "NextDit",
+        title: "NextDit",
+        poster: "projets/Nextdit.png",
+        techs: ["Next.js", "AWS", "Puppeteer"],
+        github: "https://github.com/P3drodeSousa/Nextdit.git",
+        link: "https://nextdit.vercel.app/",
+      },
+    ],
+    other: [
       {
         nom: "CryptoTracker",
         title: "CryptoTracker",
-        poster: "projets/nextcrypto.png",
         techs: ["React", "Coingecko"],
         github: "https://github.com/P3drodeSousa/crypto_Tracker.git",
         link: "https://crypto-tracker-nine-amber.vercel.app/",
       },
-      // { 
-      //   nom: "NextDit",
-      //   title: "NextDit",
-      //   poster: "projets/next_blog.png",
-      //   techs: ["Next.js", "AWS", "Puppeteer"],
-      //   github: "https://github.com/P3drodeSousa/thumbnail",
-      //   link: "https://thumbnail.vercel.app/",
-      // },
-    ],
-    other: [
       {
         nom:"Pinterest",
         title: "Pinterest UI clone",
@@ -54,13 +53,6 @@ export const projets = {
         techs: ["Gsap", "JS"],
         github: "https://github.com/P3drodeSousa/Travel",
         link: "https://p3drodesousa.github.io/Travel/",
-      },
-      { 
-        nom: "PWA",
-        title: "React PWA Weather",
-        techs: ["React PWA", "JS"],
-        github: "https://github.com/P3drodeSousa/thumbnail",
-        link: "https://thumbnail.vercel.app/",
       },
       // {
       //   nom:"Docs",

@@ -15,9 +15,6 @@ export default function Guestbook({ initialEntries, langue }) {
   const { data: entries } = useSWR("/api/guestbook", fetcher, {
     initialData: initialEntries,
   });
-  const { data: providers } = useSWR("/api/auth/providers", fetcher);
-
-  if (!providers) return <div>Loading </div>;
 
   return (
     <Container title="Guestbook – Pedro de Sousa">
@@ -25,7 +22,7 @@ export default function Guestbook({ initialEntries, langue }) {
         <Title title="Guestbook ." />
         <div class="text-justify text-lg max-w-6xl mx-auto my-14">
           <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="mb-8">
               {langue("guestbook:description")}
             </p>
 

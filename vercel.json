@@ -10,6 +10,24 @@
             "value": "public, max-age=31536000, immutable"
           }
         ]
+      },
+      {
+        "source": "/me.png",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=15552000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/pedro_de_sousa.jpg",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=15552000, immutable"
+          }
+        ]
       }
     ],
     "redirects": [

@@ -9,7 +9,7 @@ module.exports = nextTranslate({
       }
     ];
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config) => {
     // Replace React with Preact only in client production build
       Object.assign(config.resolve.alias, {
         react: 'preact/compat',

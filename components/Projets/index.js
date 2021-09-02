@@ -6,11 +6,11 @@ import { FiGithub, FiExternalLink } from "react-icons/fi";
 export default function ProjetComponent({ projet }) {
   const { t } = useTranslation("common");
   return (
-    <section class="project-list mt-24">
+    <section className="project-list mt-24">
       {projet &&
         projet.map(({ title, poster, nom, techs, github, link }) => (
-          <section class="projet mt-12 mb-48" key={title}>
-            <a href={link} class="photo" rel="noreferrer">
+          <section className="projet mt-12 mb-48" key={title}>
+            <a href={link} className="photo" rel="noreferrer">
               <h1>{title}</h1>
               <img src={poster}  alt={title}/>
               {/* <Image
@@ -22,7 +22,7 @@ export default function ProjetComponent({ projet }) {
                 className="poster"
               /> */}
             </a>
-            <div class="content ">
+            <div className="content ">
               <p className="my-7">{t(`projects:${nom}`)}</p>
               <ul>
                 {techs.map((tech) => (
@@ -32,7 +32,7 @@ export default function ProjetComponent({ projet }) {
                 ))}
               </ul>
 
-              <div class="project-links">
+              <div className="project-links">
                 <a href={github} target="_blank" rel="noreferrer">
                   <FiGithub size={30} />
                 </a>
