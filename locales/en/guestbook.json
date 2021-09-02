@@ -1,0 +1,9 @@
+{
+  "description": "Leave a comment below. It could be anything – appreciation, information, wisdom, or even humor. Surprise me!",
+  "formTitle": "Sign the",
+  "formDescription": "Share a message for a future visitor of my site.",
+  "formPlaceholder": "Your message ...",
+  "formButton": "Sign",
+  "trust": "Your information is only used to display your name and reply by email.",
+  "formSucess":"Hooray! Thanks for signing my Guestbook."
+}

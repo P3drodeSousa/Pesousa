@@ -1,0 +1,15 @@
+{
+  "title": "what I Code.",
+  "description": "Here's some selected projects I've worked on...",
+  "NextFlix": "Browse a long side the list of most the  popular movies. View the movie details. Create your watchlist.",
+  "NextMedium":"A web app that converts Markdonw intro static content like the blog image, populate the meta data of the blog with automatic generated the cover image.",
+  "NextDit":"A reddit clone build with AWS webservices",
+  "CryptoTracker" : "A simple crypto market value tracker.",
+  "Other" :"Other Projects",
+  "Pinterest": "A clone of the pinterest homepage.",
+  "Portfolio_v1":  "My first portfolio website I designed and built in 2020. I learned quite a bit about Gatsby. Since then, I think my web development and design skills have improved immensely.",
+  "Travel":"A simple animated website with Gzap.",
+  "PWA": "A minimal weather PWA.",
+  "Docs": "An realtime clone of Google docs.",
+  "Music_React": "Music web app."
+}
