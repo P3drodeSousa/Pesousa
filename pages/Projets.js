@@ -2,10 +2,7 @@ import Container from "../components/Container";
 import Title from "../components/Utils/Title";
 import ProjetComponent from "@/components/Projets";
 import OtherProjets from "@/components/OtherProjets";
-import {projets} from '@/data/projets'
-
-//TODO Projets descriptions
-// TODO deploy reddit Clone
+import { projets } from "@/data/projets";
 
 export default function Projets({ projets, langue }) {
   return (

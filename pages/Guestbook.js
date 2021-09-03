@@ -1,9 +1,5 @@
 import db from "@/lib/planetscale";
 import { signIn, useSession } from "next-auth/client";
-
-import useSWR, { mutate } from "swr";
-import fetcher from "@/lib/fetcher";
-
 import Container from "../components/Container";
 import Title from "../components/Utils/Title";
 import GuestBookform from "@/components/Guestbook/GuestBookForm";
@@ -11,20 +7,13 @@ import GuestBookEntry from "@/components/Guestbook";
 
 export default function Guestbook({ initialEntries, langue }) {
   const [session] = useSession();
-
-  const { data: entries } = useSWR("/api/guestbook", fetcher, {
-    initialData: initialEntries,
-  });
-
   return (
     <Container title="Guestbook – Pedro de Sousa">
       <section className="mt-5">
         <Title title="Guestbook ." />
         <div class="text-justify text-lg max-w-6xl mx-auto my-14">
           <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-            <p className="mb-8">
-              {langue("guestbook:description")}
-            </p>
+            <p className="mb-8">{langue("guestbook:description")}</p>
 
             <div className="border border-blue-200 rounded p-6 mt-4 w-full dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque">
               <h5 className="text-lg md:text-xl font-bold">
@@ -66,7 +55,10 @@ export default function Guestbook({ initialEntries, langue }) {
             </div>
 
             <section class="mt-5">
-              <GuestBookEntry entries={entries} user={session?.user.name} />
+              <GuestBookEntry
+                initialEntries={initialEntries}
+                user={session?.user.name}
+              />
             </section>
           </div>
         </div>

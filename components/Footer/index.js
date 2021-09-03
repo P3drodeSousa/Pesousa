@@ -11,7 +11,6 @@ export default function Footer() {
   const { t, lang } = useTranslation();
 
   const langue = () => (lang === "fr" ? { locale: fr } : null);
-  const handleDarkIcons = () => (theme === "dark" ? "white" : "black");
 
   const day = format(new Date(), "EEEE", langue());
   const year = format(new Date(), "yyyy");
@@ -23,22 +22,29 @@ export default function Footer() {
       </div>
       <Spotify />
       <div className="flex flex-1 w-full items-center justify-center md:justify-end icons-spacing cursor-pointer">
-        <a href="mailto:contact@pesousa.dev" target="_blank" rel="noreferrer">
-          <FiMail size={24} color={handleDarkIcons()} />
+        <a
+          href="mailto:contact@pesousa.dev"
+          target="_blank"
+          className="mail"
+          rel="noreferrer"
+        >
+          <FiMail size={24} className="transform" style={{ fill: "current" }} />
         </a>
         <a
           href="https://www.linkedin.com/in/pedros0usa/"
           target="_blank"
           rel="noreferrer"
+          className="linkedin"
         >
-          <RiLinkedinFill size={24} color={handleDarkIcons()} />
+          <RiLinkedinFill size={24} style={{ fill: "current" }} />
         </a>
         <a
           href="https://github.com/P3drodeSousa"
           target="_blank"
           rel="noreferrer"
+          className="github"
         >
-          <RiGithubFill size={24} color={handleDarkIcons()} />
+          <RiGithubFill size={24} style={{ fill: "current" }} />
         </a>
       </div>
     </footer>

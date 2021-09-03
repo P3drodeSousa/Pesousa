@@ -1,39 +1,35 @@
 import { useCallback, useImperativeHandle, forwardRef, useState } from "react";
 import NextLink from "next/link";
-import {RiCloseFill } from 'react-icons/ri'
+import { RiCloseFill } from "react-icons/ri";
 import { useTheme } from "next-themes";
 
+const Menu = ({ menus, href }, ref) => {
+  const [visible, setVisible] = useState(false);
+  const { theme } = useTheme();
 
-const Menu = ({menus, href},ref) => {
-    const [visible, setVisible] = useState(false);
-    const { theme,} = useTheme();
+  const CloseMenu = useCallback(() => {
+    setVisible(false);
+  }, []);
 
+  useImperativeHandle(
+    ref,
+    () => {
+      return { openMenu };
+    },
+    []
+  );
 
-    const CloseMenu = useCallback(() => {
-        setVisible(false);
-      }, []);
-    
-      useImperativeHandle(
-        ref,
-        () => {
-          return { openMenu };
-        },
-        []
-      );
-    
-      const openMenu = useCallback(() => {
-        setVisible(true);
-      }, []);
-    
-    const handleDarkIcons = (theme) => (theme === "dark" ? "black" : "white");
+  const openMenu = useCallback(() => {
+    setVisible(true);
+  }, []);
 
-    if(!visible) return null;
+  if (!visible) return null;
 
-    return (
+  return (
     <div className="h-screen w-screen bg-black dark:bg-white absolute inset-0 -left-8 flex flex-col items-center justify-between py-20 z-50 ">
       <RiCloseFill
         size={60}
-        color={handleDarkIcons(theme)} 
+        style={{ fill: "current" }}
         className="absolute top-4 left-4"
         onClick={CloseMenu}
       />
@@ -49,6 +45,6 @@ const Menu = ({menus, href},ref) => {
       })}
     </div>
   );
-}
+};
 
-export default forwardRef(Menu)
+export default forwardRef(Menu);

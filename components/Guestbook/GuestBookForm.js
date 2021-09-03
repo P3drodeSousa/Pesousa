@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { mutate } from "swr";
 
-import SuccessMessage from '@/components/Utils/SucessMessage';
-import ErrorMessage from '@/components/Utils/ErrorMessage';
+import SuccessMessage from "@/components/Utils/SucessMessage";
+import ErrorMessage from "@/components/Utils/ErrorMessage";
 import LoadingSpinner from "@/components/Utils/Loading";
 import useTranslation from "next-translate/useTranslation";
 
@@ -31,7 +31,7 @@ export default function GuestBookform() {
     if (error) {
       setForm({
         state: "error",
-        message: 'Something unexpected went wrong ;(',
+        message: "Something unexpected went wrong ;(",
       });
       return;
     }
@@ -42,7 +42,7 @@ export default function GuestBookform() {
 
     setForm({
       state: "success",
-      message: t('guestbook:formSucess'),
+      message: t("guestbook:formSucess"),
     });
   };
 
@@ -51,26 +51,30 @@ export default function GuestBookform() {
       <form className="relative my-4 flex items-center" onSubmit={handleSubmit}>
         <input
           ref={inputEl}
-          aria-label={t('guestbook:formPlaceholder')}
-          placeholder={t('guestbook:formPlaceholder')}
+          aria-label={t("guestbook:formPlaceholder")}
+          placeholder={t("guestbook:formPlaceholder")}
           required
-          className="border border-blue-200 rounded placeholder-gray-800 dark:placeholder-gray-50 pl-4 pr-32 py-2 mt-1  block w-full"
+          className=" bg-transparent outline-none rounded border focus:border-indigo-500 dark:focus:border-pink-500 dark:border-gray-700 dark:text-whit pl-4 pr-32 py-2 mt-1  block w-full"
         />
         <button
           className="flex items-center justify-center absolute right-1 px-4 font-bold h-8 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded w-28"
           type="submit"
         >
-          {form.state === 'loading' ? <LoadingSpinner /> : t('guestbook:formButton')}
+          {form.state === "loading" ? (
+            <LoadingSpinner />
+          ) : (
+            t("guestbook:formButton")
+          )}
         </button>
       </form>
-      
+
       {form.state === "error" ? (
         <ErrorMessage>{form.message}</ErrorMessage>
       ) : form.state === "success" ? (
         <SuccessMessage>{form.message}</SuccessMessage>
       ) : (
         <p className="text-sm text-gray-800 dark:text-gray-200">
-          {t('guestbook:trust')}
+          {t("guestbook:trust")}
         </p>
       )}
     </div>

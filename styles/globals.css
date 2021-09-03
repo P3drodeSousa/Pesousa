@@ -3,20 +3,41 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 200 300 400 500 600 700 800 900;
   font-display: optional;
-  src: url(/fonts/poppins-regular.woff2) format('woff2');
+  src: url(/fonts/poppins-regular.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
-
 }
-  
+
 ::selection {
   background-color: #00d1ff;
   color: #fefefe;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 5px;
+  border: 1px none #ffffff;
 }
 
 html {
@@ -49,12 +70,35 @@ html {
   background-repeat: no-repeat;
 }
 
+/* Footer Icons */
+.mail:hover {
+  @apply text-google;
+}
+
+.linkedin:hover {
+  @apply text-linkedin;
+}
+
+.github:hover {
+  @apply text-github;
+}
+
 .icons-spacing > * {
   margin-left: 5px;
 }
 
 .skill_heigth {
   min-height: 450px;
+}
+
+.profile {
+  background: white;
+  background-image: url("/pedro_de_sousa.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding: 12px;
+  background-size: cover;
+  background-clip: content-box;
 }
 
 /* Porjet List */
@@ -168,11 +212,11 @@ html {
   margin-left: 8px;
 }
 
-#Calque_1{
+#Calque_1 {
   width: 50px;
   height: 50px;
- font-size:130px;
- font-family:StanleyRegular, Stanley;
+  font-size: 130px;
+  font-family: StanleyRegular, Stanley;
 }
 
 /* 404 Page */
@@ -210,7 +254,8 @@ html {
   text-decoration: none;
   padding: 0 9px 2px 8px;
 }
-.bsod .nav .link:hover, .bsod .nav .link:focus {
+.bsod .nav .link:hover,
+.bsod .nav .link:focus {
   background: #aaaaaa;
   color: #0414a7;
 }
@@ -224,26 +269,24 @@ html {
 }
 
 .deleting span:nth-child(2) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 
 .deleting span:nth-child(3) {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 
 @keyframes blink {
   0% {
-    opacity: .2;
+    opacity: 0.2;
   }
   20% {
     opacity: 1;
   }
   100% {
-    opacity: .2;
+    opacity: 0.2;
   }
 }
-
-
 
 @media screen and (max-width: 762px) {
   .project-list {

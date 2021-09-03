@@ -6,7 +6,6 @@ import TopTracks from "../components/TopTracks";
 import getMyFolders from "./api/github";
 
 export default function About({ stats, langue }) {
-  console.log(stats)
   return (
     <Container title={`${langue("about:title")} – Pedro de Sousa`}>
       <section className="mt-5">

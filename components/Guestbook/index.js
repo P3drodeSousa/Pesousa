@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import { mutate } from "swr";
+import useSWR, { mutate } from "swr";
+import fetcher from "@/lib/fetcher";
 
-export default function GuestBookEntry({ entries, user }) {
+export default function GuestBookEntry({ initialEntries, user }) {
   const [erasing, setErasing] = useState(false);
+
+  const { data: entries } = useSWR("/api/guestbook", fetcher, {
+    initialData: initialEntries,
+  });
   const deleteEntry = async (id, e) => {
     e.preventDefault();
 
@@ -12,7 +17,6 @@ export default function GuestBookEntry({ entries, user }) {
     await fetch(`/api/guestbook/${id}`, {
       method: "DELETE",
     });
-
     mutate("/api/guestbook");
     setErasing(false);
   };
@@ -26,7 +30,7 @@ export default function GuestBookEntry({ entries, user }) {
             <p className="text-sm text-gray-500">{entry.name}</p>
             <span className=" text-gray-200 dark:text-gray-800">/</span>
             <p className="text-sm text-gray-400 dark:text-gray-600">
-              {format(new Date(entry.updated_at), "dd/MM/yyyy '-' h:mm ")}
+              {format(new Date(entry.updated_at), "dd/MM/yyyy '-' hh:mm ")}
             </p>
             {user && entry.name === user && (
               <>
