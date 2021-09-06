@@ -9,7 +9,7 @@ export default function AboutComponent({ me }) {
         </div>
 
         <div className="flex-1">
-          <div className="w-52 h-52 rounded-full border-4 border-indigo-500 box-content overflow-hidden dark:border-pink-500 profile"></div>
+          <div className="w-52 h-52 rounded-full border-4 border-indigo-500 dark:border-pink-500 box-content overflow-hidden  profile"></div>
         </div>
       </div>
     </div>

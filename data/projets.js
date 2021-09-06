@@ -27,8 +27,15 @@ export const projets = {
     ],
     other: [
       {
+        nom: "ImageGenerator",
+        title: "Image Generator",
+        techs: ["Next Js", "Puppeteer", 'S3'],
+        github: "https://github.com/P3drodeSousa/nextJs_Image_Generator.git",
+        link: "https://next-js-image-generator.vercel.app/",
+      },
+      {
         nom: "CryptoTracker",
-        title: "CryptoTracker",
+        title: "Crypto Tracker",
         techs: ["React", "Coingecko"],
         github: "https://github.com/P3drodeSousa/crypto_Tracker.git",
         link: "https://crypto-tracker-nine-amber.vercel.app/",

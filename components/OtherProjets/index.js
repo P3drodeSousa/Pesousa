@@ -12,11 +12,11 @@ export default function OtherProjets({ other }) {
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {other.map(({ title, github, link, techs, nom }) => (
           <div
-            className="py-8 px-7 border rounded-lg dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque"
+            className="py-8 px-7 border rounded-lg dark:border-gray-800 bg-blue-50 dark:bg-blue-opaque flex flex-col"
             key={title}
           >
             <div className="flex justify-between items-center mb-12">
-              <FiFolder size={45} color="#00FFA3" />
+              <FiFolder size={45} className="folder" />
               <div class="project-links">
                 {github && (
                   <a href={github} target="_blank" rel="noreferrer">
@@ -40,7 +40,8 @@ export default function OtherProjets({ other }) {
               {title}
             </a>
 
-            <p className="mt-5 mb-7">{t(`projects:${nom}`)}</p>
+            <p className="mt-5 mb-7 flex-1">{t(`projects:${nom}`)}</p>
+
             <ul className="flex text-xs">
               {techs.map((tech) => (
                 <li className="mr-3" key={tech}>

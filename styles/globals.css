@@ -102,6 +102,11 @@ html {
 }
 
 /* Porjet List */
+/* Other folder Icon */ 
+.folder {
+  @apply text-indigo-500 dark:text-pink-500;
+}
+
 .projet:nth-of-type(even) {
   flex-direction: row-reverse;
   text-align: left;
@@ -130,11 +135,11 @@ html {
   position: absolute;
   z-index: 1;
   transform: translate(-25%, -65%);
-  font-family: "Montserrat", sans-serif;
   margin: -15px;
   line-height: 3;
   font-size: 30px;
-  color: #00d1ff;
+  font-weight: bold;
+  @apply text-indigo-500 dark:text-pink-500;
 }
 
 .projet:nth-of-type(even) .content {
@@ -190,6 +195,7 @@ html {
   display: block;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   margin-top: -5px;
+  border-radius: 2px;
 }
 
 .photo:hover img {
