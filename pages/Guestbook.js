@@ -1,4 +1,5 @@
 import db from "@/lib/planetscale";
+import prisma from "@/lib/prisma";
 import { signIn, useSession } from "next-auth/client";
 import Container from "../components/Container";
 import Title from "../components/Utils/Title";
@@ -68,15 +69,22 @@ export default function Guestbook({ initialEntries, langue }) {
 }
 
 export async function getStaticProps() {
-  const [rows] = await db.query(`
-  SELECT * FROM guestbook
-  ORDER BY updated_at DESC;
-`);
+  const entries = await prisma.guestbook.findMany({
+    orderBy: {
+      updated_at: "desc",
+    },
+  });
 
-  const entries = await Object.values(JSON.parse(JSON.stringify(rows)));
+  const fallbackData = entries.map((entry) => ({
+    id: entry.id.toString(),
+    body: entry.body,
+    created_by: entry.created_by.toString(),
+    updated_at: entry.updated_at.toString(),
+  }));
+
   return {
     props: {
-      inititalEntries: entries,
+      fallbackData,
     },
     revalidate: 60,
   };
