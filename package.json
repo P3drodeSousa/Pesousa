@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^3.10.0",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "autoprefixer": "^10.3.3",
     "postcss": "^8.3.6",
+    "prisma": "^3.10.0",
     "tailwindcss": "^2.2.9",
     "tls": "^0.0.1"
   }
