@@ -1,4 +1,3 @@
-import db from "@/lib/planetscale";
 import prisma from "@/lib/prisma";
 import { signIn, useSession } from "next-auth/client";
 import Container from "../components/Container";

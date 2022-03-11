@@ -15,7 +15,7 @@ const options = {
     }),
     Providers.LinkedIn({
       clientId: process.env.LINKEDIN_CLIENT_ID,
-      clientSecret: process.env.LINKEDIN_CLIENT_SECRET
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
 
     //   Providers.Email({
