@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import useSWR, { mutate } from "swr";
+import useSWR, { useSWRConfig } from "swr";
 import fetcher from "@/lib/fetcher";
 
 export default function GuestBookEntry({ initialEntries, user }) {
   const [erasing, setErasing] = useState(false);
+  const { mutate } = useSWRConfig();
 
   const { data: entries } = useSWR("/api/guestbook", fetcher, {
-    initialEntries,
+    fallbackData: initialEntries,
   });
 
   const deleteEntry = async (id, e) => {
