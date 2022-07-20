@@ -1,17 +1,31 @@
 import prisma from "@/lib/prisma";
-import { signIn, useSession } from "next-auth/client";
+import { signIn, useSession } from "next-auth/react";
 import Container from "../components/Container";
 import Title from "../components/Utils/Title";
 import GuestBookform from "@/components/Guestbook/GuestBookForm";
 import GuestBookEntry from "@/components/Guestbook";
+import { Suspense } from "react";
 
-export default function Guestbook({ initialEntries, langue }) {
-  const [session] = useSession();
+type GuestBook = {
+  id: string;
+  body: string;
+  created_by: string;
+  updated_at: string;
+};
+
+type Props = {
+  initialEntries: GuestBook[];
+  langue: any;
+};
+
+export default function Guestbook({ initialEntries, langue }: Props) {
+  const { data: session } = useSession();
+
   return (
     <Container title="Guestbook – Pedro de Sousa">
       <section className="mt-5">
         <Title title="Guestbook ." />
-        <div class="text-justify text-lg max-w-6xl mx-auto my-14">
+        <div className="text-justify text-lg max-w-6xl mx-auto my-14">
           <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
             <p className="mb-8">{langue("guestbook:description")}</p>
 
@@ -37,13 +51,6 @@ export default function Guestbook({ initialEntries, langue }) {
                       Login in with <br />
                       Google
                     </button>
-                    <button
-                      className={`flex-1 w-full py-3 rounded-md bg-linkedin my-2 text-white`}
-                      onClick={() => signIn("linkedin")}
-                    >
-                      Login in with <br />
-                      Linkedin
-                    </button>
                   </div>
                 </>
               )}
@@ -54,7 +61,7 @@ export default function Guestbook({ initialEntries, langue }) {
               )}
             </div>
 
-            <section class="mt-5">
+            <section className="mt-5">
               <GuestBookEntry
                 initialEntries={initialEntries}
                 user={session?.user.name}

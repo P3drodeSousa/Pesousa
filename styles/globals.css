@@ -102,7 +102,7 @@ html {
 }
 
 /* Porjet List */
-/* Other folder Icon */ 
+/* Other folder Icon */
 .folder {
   @apply text-indigo-500 dark:text-pink-500;
 }

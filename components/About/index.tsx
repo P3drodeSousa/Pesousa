@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-export default function AboutComponent({ me }) {
+export default function AboutComponent({ me }: { me: string }) {
+  console.log(me);
   return (
     <div>
       <div className="flex md:flex-row flex-col-reverse max-w-6xl mx-auto items-center gap-20 mt-14">

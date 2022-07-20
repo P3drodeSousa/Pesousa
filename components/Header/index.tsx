@@ -1,8 +1,11 @@
 import NextLink from "next/link";
-import DarkMode from "./DarkMode";
+
 import Mobile from "./MobileMenu";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
+
+import setLanguage from "next-translate/setLanguage";
+import DarkMode from "./DarkMode";
 
 const hrefs = ["/", "/About", "/Skills", "/Projets", "/Guestbook"];
 
@@ -18,10 +21,7 @@ export default function Header() {
     "Guestbook",
   ];
 
-  const changeLanguage = (e) => {
-    const locale = e.target.value;
-    router.push(router.pathname, router.asPath, { locale });
-  };
+  console.log(locale);
 
   const showHeader = (route) => route === "/";
 
@@ -55,7 +55,7 @@ export default function Header() {
           {links.map((item, index) => {
             return (
               <NextLink key={item} href={hrefs[index]}>
-                <a className="p-1 text-gray-900 sm:p-4 text-base dark:text-white ">
+                <a className="p-1 text-gray-900 sm:p-4 text-base dark:text-white hover:font-semibold">
                   {item}
                 </a>
               </NextLink>
@@ -63,20 +63,22 @@ export default function Header() {
           })}
         </nav>
       </div>
-      <div className="flex">
-        <select
-          aria-label="Langue"
-          onChange={changeLanguage}
-          defaultValue={locale}
-          className=" text-black dark:text-white text-lg bg-transparent tracking-wide mr-2 border-none outline-none"
-        >
-          <option className="text-black " value="en">
+      <div className="flex items-center ">
+        <div className="w-20 mr-1">
+          <button
+            className={locale == "en" ? "font-bold" : null}
+            onClick={async () => await setLanguage("en")}
+          >
             EN
-          </option>
-          <option className="text-black" value="fr">
+          </button>
+          {" / "}
+          <button
+            className={locale == "fr" ? "font-bold" : null}
+            onClick={async () => await setLanguage("fr")}
+          >
             FR
-          </option>
-        </select>
+          </button>
+        </div>
         <DarkMode />
       </div>
     </nav>

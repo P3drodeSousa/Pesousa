@@ -7,7 +7,7 @@ export default function GuestBookEntry({ initialEntries, user }) {
   const [erasing, setErasing] = useState(false);
 
   const { data: entries } = useSWR("/api/guestbook", fetcher, {
-    initialData: initialEntries,
+    initialEntries,
   });
 
   const deleteEntry = async (id, e) => {
@@ -21,6 +21,8 @@ export default function GuestBookEntry({ initialEntries, user }) {
     mutate("/api/guestbook");
     setErasing(false);
   };
+
+  console.log(entries);
 
   return (
     <div className="flex flex-col space-y-2">

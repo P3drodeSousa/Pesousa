@@ -6,6 +6,7 @@ export default function DarkMode() {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
+
   return (
     <div>
       {mounted && (

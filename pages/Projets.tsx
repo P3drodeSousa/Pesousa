@@ -3,8 +3,19 @@ import Title from "../components/Utils/Title";
 import ProjetComponent from "@/components/Projets";
 import OtherProjets from "@/components/OtherProjets";
 import { projets } from "@/data/projets";
+import { ProjetType } from "@/lib/types";
+import { GetStaticProps } from "next";
 
-export default function Projets({ projets, langue }) {
+type Props = {
+  projets: {
+    main: ProjetType[];
+    other: ProjetType[];
+  };
+  langue: any;
+};
+
+export default function Projets({ projets, langue }: Props) {
+  console.log(projets);
   return (
     <Container title={`${langue("projects:title")} – Pedro de Sousa`}>
       <section className="mt-5">
@@ -19,11 +30,11 @@ export default function Projets({ projets, langue }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       projets,
     },
     revalidate: 60,
   };
-}
+};

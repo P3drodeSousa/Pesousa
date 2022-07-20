@@ -1,11 +1,17 @@
-import AboutComponent from "../components/About";
 import Container from "../components/Container";
-import Stats from "../components/Stats";
 import Title from "../components/Utils/Title";
-import TopTracks from "../components/TopTracks";
 import getMyFolders from "./api/github";
+import { GetStaticProps } from "next";
+import AboutComponent from "@/components/About";
+import TopTracks from "@/components/TopTracks";
+import Stats from "../components/Stats";
 
-export default function About({ stats, langue }) {
+type Props = {
+  stats: number;
+  langue: any;
+};
+
+export default function About({ stats, langue }: Props) {
   return (
     <Container title={`${langue("about:title")} – Pedro de Sousa`}>
       <section className="mt-5">
@@ -22,8 +28,7 @@ export default function About({ stats, langue }) {
     </Container>
   );
 }
-
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const stats = await getMyFolders();
 
   return {
@@ -32,4 +37,4 @@ export async function getStaticProps() {
     },
     revalidate: 60,
   };
-}
+};

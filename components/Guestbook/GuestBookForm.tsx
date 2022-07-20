@@ -6,14 +6,26 @@ import ErrorMessage from "@/components/Utils/ErrorMessage";
 import LoadingSpinner from "@/components/Utils/Loading";
 import useTranslation from "next-translate/useTranslation";
 
+enum Form {
+  Initial,
+  Loading,
+  Success,
+  Error,
+}
+
+type FormState = {
+  state: Form;
+  message?: string;
+};
+
 export default function GuestBookform() {
-  const [form, setForm] = useState(false);
+  const [form, setForm] = useState<FormState>({ state: Form.Initial });
   const inputEl = useRef(null);
   const { t } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setForm({ state: "loading" });
+    setForm({ state: Form.Loading });
 
     const res = await fetch("/api/guestbook", {
       body: JSON.stringify({
@@ -26,22 +38,18 @@ export default function GuestBookform() {
     });
 
     const { error } = await res.json();
-
-    // Checks for error
     if (error) {
       setForm({
-        state: "error",
-        message: "Something unexpected went wrong ;(",
+        state: Form.Error,
+        message: error,
       });
       return;
     }
 
     inputEl.current.value = "";
-
     mutate("/api/guestbook");
-
     setForm({
-      state: "success",
+      state: Form.Success,
       message: t("guestbook:formSucess"),
     });
   };
@@ -60,7 +68,7 @@ export default function GuestBookform() {
           className="flex items-center justify-center absolute right-1 px-4 font-bold h-8 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded w-28"
           type="submit"
         >
-          {form.state === "loading" ? (
+          {form.state === Form.Loading ? (
             <LoadingSpinner />
           ) : (
             t("guestbook:formButton")
@@ -68,9 +76,9 @@ export default function GuestBookform() {
         </button>
       </form>
 
-      {form.state === "error" ? (
+      {form.state === Form.Error ? (
         <ErrorMessage>{form.message}</ErrorMessage>
-      ) : form.state === "success" ? (
+      ) : form.state === Form.Success ? (
         <SuccessMessage>{form.message}</SuccessMessage>
       ) : (
         <p className="text-sm text-gray-800 dark:text-gray-200">

@@ -1,9 +1,11 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+import { getSession } from "next-auth/react";
 import prisma from "@/lib/prisma";
-import { getSession } from "next-auth/client";
 
-export default async function handler(req, res) {
-  const session = await getSession({ req });
-
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "GET") {
     const entries = await prisma.guestbook.findMany({
       orderBy: {
@@ -21,14 +23,17 @@ export default async function handler(req, res) {
     );
   }
 
+  const session = await getSession({ req });
+  const { email, name } = session.user;
+
+  if (!session) {
+    return res.status(403).send("Unauthorized");
+  }
+
   if (req.method === "POST") {
-    if (!session) return res.status(403).send("Unauthorized");
-
-    const { name, email } = session.user;
-
     const newEntry = await prisma.guestbook.create({
       data: {
-        email: email || "test",
+        email,
         body: (req.body.body || "").slice(0, 500),
         created_by: name,
       },

@@ -1,5 +1,5 @@
-import Stat from "./Stat";
 import differenceInHours from "date-fns/differenceInHours";
+import Stat from "./Stat";
 
 export default function Stats({ stats, text, days, code }) {
   // Calculate diference between two dates (days Alive)

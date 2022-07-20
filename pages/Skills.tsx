@@ -1,9 +1,17 @@
 import Container from "../components/Container";
 import Title from "../components/Utils/Title";
 import Skills from "../components/Skills";
-import {skills} from '@/data/uses'
+import { skills } from "../data/uses";
+import { SkillsType } from "@/lib/types";
+import { GetStaticProps } from "next";
 
-export default function Uses({ skills, langue }) {
+type Props = {
+  skills: SkillsType[];
+  langue: any;
+};
+
+export default function Uses({ skills, langue }: Props) {
+  console.log(skills);
   return (
     <Container title={`${langue("skills:title")} – Pedro de Sousa`}>
       <section className="mt-5">
@@ -17,11 +25,11 @@ export default function Uses({ skills, langue }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       skills,
     },
     revalidate: 60,
   };
-}
+};

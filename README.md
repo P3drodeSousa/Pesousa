@@ -1,15 +1,8 @@
-# Pedro de sousa - Website
- 
-## Built Using
-Next.js
-Tailwind CSS
-PLanetScale
-Github API
+# Pesousa.dev
 
-## Running Locally
-`
-$ git clone
-$ cd 
-$ yarn
-$ yarn dev
-`
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [PlanetScale](https://planetscale.com)
+- **ORM**: [Prisma](https://prisma.io/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)

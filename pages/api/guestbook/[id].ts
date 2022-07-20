@@ -1,11 +1,15 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+import { getSession } from "next-auth/react";
 import prisma from "@/lib/prisma";
-import { getSession } from "next-auth/client";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const session = await getSession({ req });
 
   const { id } = req.query;
-  const { name } = session.user;
+  const { email } = session.user;
 
   const entry = await prisma.guestbook.findUnique({
     where: {
@@ -22,12 +26,11 @@ export default async function handler(req, res) {
     });
   }
 
-  if (req.method === "DELETE") {
-    if (!name || name !== entry.created_by) {
-      return res.status(403).send("Unauthorized ");
-    }
+  if (!session || email !== entry.email) {
+    return res.status(403).send("Unauthorized");
+  }
 
-    console.log(id);
+  if (req.method === "DELETE") {
     await prisma.guestbook.delete({
       where: {
         id: Number(id),
@@ -38,10 +41,6 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "PUT") {
-    if (!name || name !== entry.created_by) {
-      return res.status(403).send("Unauthorized");
-    }
-
     const body = (req.body.body || "").slice(0, 500);
 
     await prisma.guestbook.update({
