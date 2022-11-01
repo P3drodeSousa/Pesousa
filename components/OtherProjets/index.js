@@ -40,9 +40,9 @@ export default function OtherProjets({ other }) {
               {title}
             </a>
 
-            <p className="mt-5 mb-7 flex-1">{t(`projects:${nom}`)}</p>
+            {/* <p className="mt-5 mb-7 flex-1">{t(`projects:${nom}`)}</p> */}
 
-            <ul className="flex text-xs">
+            <ul className="flex text-xs mt-5 mb-7">
               {techs.map((tech) => (
                 <li className="mr-3" key={tech}>
                   {tech}
